@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
+import CityList from './components/CityList.js';
+import React, { useState, useEffect } from 'react';
+
+import { Search } from './components/Search';
+import { GlobalProvider } from './context/GlobalState';
+import City from './components/City';
+
 
 function App() {
+  const [cities, setCities] = useState([])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalProvider>
+      <Search/>
+       <City/>
+
+    </GlobalProvider>
   );
 }
 
