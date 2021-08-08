@@ -24,6 +24,8 @@ input {
   margin: 20px;
   text-align: left;
   display: flex;
+  flex-direction: column;
+  width: 225px;
 }
 h2 {
   font-size: xx-large;
@@ -74,6 +76,21 @@ loadingCircle {
   background-color: transparent;
   border-color: rgb(224, 101, 197);
   border-radius: 100px;
-
+  height: 28px;
+  width: 28px;
   color: rgb(224, 101, 197);
+}
+.forecastCity {
+  background-color: transparent;
+  border-color: rgb(224, 101, 197);
+  border-radius: 100%;
+  margin-left: 5px;
+  height: 28px;
+  width: 28px;
+  color: rgb(224, 101, 197);
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

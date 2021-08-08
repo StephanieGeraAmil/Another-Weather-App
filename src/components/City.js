@@ -6,6 +6,10 @@ const City = ({city}) => {
 
 const {removeCity}=useContext(GlobalContext)
 // const {getForecast}=useContext(GlobalContext)
+
+const getForecast=(id)=>{
+    
+}
     return ( 
         <>
             
@@ -19,9 +23,9 @@ const {removeCity}=useContext(GlobalContext)
                             <p>Location :{city.location}</p>
                             </div>
                     
-                    <div>
+                    <div className='buttons'>
                         <button className='deleteCityButon' onClick={()=>removeCity(city.id)}>X</button>
-                        {/* <button className='forecastCity' onClick={()=>getForecast(city.id)}>X</button> */}
+                        <button className='forecastCity' onClick={()=>getForecast(city.id)}>...</button>
                    
                     </div>
 

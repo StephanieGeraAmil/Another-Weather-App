@@ -1,7 +1,7 @@
 import React ,{useContext} from 'react';
 import City from './City.js'
 import { GlobalContext } from '../context/GlobalState'
-const CityList = ({}) => {
+const CityList = () => {
 const {cities}=useContext(GlobalContext)
 const {loading}=useContext(GlobalContext)
 
