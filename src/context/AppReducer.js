@@ -12,10 +12,15 @@ export default(state, action)=>{
         ...state,
        loading: false
         }
-        case 'CHANGE_CITY':
+        case 'ADD_CITY':
         return{
         ...state,
-       city: action.payload
+       cities: [ ...state.cities, action.payload]
+        }
+        case 'REMOVE_CITY':
+        return{
+        ...state,
+       cities: state.cities.filter(item=>item.id!==action.payload)
         }
         default:  return state
     }

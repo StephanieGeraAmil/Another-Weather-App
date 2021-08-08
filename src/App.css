@@ -23,7 +23,7 @@ input {
   padding: 20px;
   margin: 20px;
   text-align: left;
-  display: inline-block;
+  display: flex;
 }
 h2 {
   font-size: xx-large;
@@ -64,4 +64,11 @@ loadingCircle {
   height: 0.5rem;
   background-color: rgb(224, 101, 197);
   border-radius: 0.25rem;
+}
+.deleteCityButon {
+  background-color: transparent;
+  border-color: rgb(224, 101, 197);
+  border-radius: 100px;
+
+  color: rgb(224, 101, 197);
 }

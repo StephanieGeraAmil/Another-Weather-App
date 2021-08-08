@@ -5,7 +5,7 @@ import { GlobalContext } from '../context/GlobalState'
 
 
 export const Search = () => {
-    const {changeCity}=useContext(GlobalContext)
+    const {addCity}=useContext(GlobalContext)
         const {startLoad}=useContext(GlobalContext)
             const {stopLoad}=useContext(GlobalContext)
     const [city,setCity]=useState('')
@@ -16,8 +16,9 @@ export const Search = () => {
 
         startLoad()
         const data= await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${ process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`)
-       
+       console.log(data)
         const cityWithFormat={
+            id: data.data.id,
             name: data.data.name,
             max: data.data.main.temp_max,
             min: data.data.main.temp_min,
@@ -27,7 +28,7 @@ export const Search = () => {
           }
          
 
-        changeCity(cityWithFormat)
+        addCity(cityWithFormat)
        stopLoad()
         
         }catch(error){ console.error(error);}

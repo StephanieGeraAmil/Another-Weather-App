@@ -14,7 +14,7 @@ function App() {
   return (
     <GlobalProvider>
       <Search/>
-       <City/>
+       <CityList/>
 
     </GlobalProvider>
   );

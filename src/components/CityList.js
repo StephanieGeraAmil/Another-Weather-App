@@ -1,11 +1,12 @@
-import React from 'react';
+import React ,{useContext} from 'react';
 import City from './City.js'
-const CityList = ({ cities }) => {
-
+import { GlobalContext } from '../context/GlobalState'
+const CityList = () => {
+const {cities}=useContext(GlobalContext)
 
     return (<div>
         <ul>
-            {cities.map((item, index) => {
+            {cities.map((item) => {
                 return (
 
                     <li key={item.name} className="itemlist">
