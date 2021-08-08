@@ -3,11 +3,12 @@ import { GlobalContext } from '../context/GlobalState'
 
 const City = ({city}) => {
     
-const {loading}=useContext(GlobalContext)
+
 const {removeCity}=useContext(GlobalContext)
+// const {getForecast}=useContext(GlobalContext)
     return ( 
         <>
-            {!loading &&
+            
                 <div className="cityCard">
                     <div>
                             <h2>{city.name}</h2>
@@ -20,10 +21,12 @@ const {removeCity}=useContext(GlobalContext)
                     
                     <div>
                         <button className='deleteCityButon' onClick={()=>removeCity(city.id)}>X</button>
+                        {/* <button className='forecastCity' onClick={()=>getForecast(city.id)}>X</button> */}
+                   
                     </div>
+
                     </div>
-                        }
-            {loading&& <h4>Loading...</h4>}
+           
         </>
        
     )
