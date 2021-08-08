@@ -1,10 +1,13 @@
 import React ,{useContext} from 'react';
 import City from './City.js'
 import { GlobalContext } from '../context/GlobalState'
-const CityList = () => {
+const CityList = ({}) => {
 const {cities}=useContext(GlobalContext)
+const {loading}=useContext(GlobalContext)
 
     return (<div>
+         
+        {!loading &&
         <ul>
             {cities.map((item) => {
                 return (
@@ -16,6 +19,9 @@ const {cities}=useContext(GlobalContext)
 
             })}
         </ul>
+                     }
+        {loading&& <h4>Loading...</h4>}
+       
 
     </div >)
 };
