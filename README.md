@@ -1,1 +1,1 @@
-Just another weather app, made for play with API calls
+Just another weather app, made for play with API calls, Context API and React-Router
