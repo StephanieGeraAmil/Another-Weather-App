@@ -80,6 +80,14 @@ loadingCircle {
   width: 28px;
   color: rgb(224, 101, 197);
 }
+.retunButton {
+  background-color: transparent;
+  border-color: rgb(224, 101, 197);
+  border-radius: 100px;
+  height: 28px;
+  width: 28px;
+  color: rgb(224, 101, 197);
+}
 .forecastCity {
   background-color: transparent;
   border-color: rgb(224, 101, 197);

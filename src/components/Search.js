@@ -6,9 +6,9 @@ import { GlobalContext } from '../context/GlobalState'
 
 export const Search = () => {
     const {addCity}=useContext(GlobalContext)
-     const {cities}=useContext(GlobalContext)
-        const {startLoad}=useContext(GlobalContext)
-            const {stopLoad}=useContext(GlobalContext)
+    const {cities}=useContext(GlobalContext)
+    const {startLoad}=useContext(GlobalContext)
+    const {stopLoad}=useContext(GlobalContext)
     const [city,setCity]=useState('')
       
 
@@ -28,9 +28,8 @@ export const Search = () => {
                 location: `${data.data.coord.lat}  ${data.data.coord.lon}`      
             }
             
-
             addCity(cityWithFormat)
-             stopLoad()
+            stopLoad()
         
         }catch(error){ 
              if (error.response.status==404) {
@@ -49,14 +48,13 @@ export const Search = () => {
         e.preventDefault();
     
         if(city!="" && cities.find(item=>item.name.toLowerCase()==city.toLowerCase())===undefined){     
-         
         fetchData(); 
         }  
     }
     return (
         <form onSubmit={onSubmitfn}>
             <input type="text"  placeholder="City..." onChange={(e)=>{setCity(e.target.value)}}  value={city}/> 
-            <span className='magnifier'><FaSearch/></span>
+            <button className='magnifier'  type="submit"><FaSearch/></button>
         </form>
     )
 }

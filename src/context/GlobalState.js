@@ -2,17 +2,18 @@ import React,{createContext, useReducer } from "react"
 import AppReducer from './AppReducer.js'
 import cityWeather from '../city-weather';
 //initial state
-    const city={
-            name: cityWeather[0].name,
-            max: cityWeather[0].main.temp_max,
-            min: cityWeather[0].main.temp_max,
-            main: cityWeather[0].weather[0].main,
-            description: cityWeather[0].weather[0].description,
-            location: `${cityWeather[0].coord.lat}  ${cityWeather[0].coord.lon}`      
-          }
- const initialstate={
+const city={
+        name: cityWeather[0].name,
+        max: cityWeather[0].main.temp_max,
+        min: cityWeather[0].main.temp_max,
+        main: cityWeather[0].weather[0].main,
+        description: cityWeather[0].weather[0].description,
+        location: `${cityWeather[0].coord.lat}  ${cityWeather[0].coord.lon}`      
+    }
+const initialstate={
     loading:false,
-    cities: [city]
+    cities: [],
+    forecast: {}
     }
 
 //create context
@@ -53,10 +54,19 @@ export const GlobalProvider = ({children})=>{
             });
            
     }
+   const addForecast=(data)=>{
+
+        dispatch({
+            type: 'ADD_CITY_FORECAST',
+            payload: data
+            });
+           
+    }
+    
 
     return(
         <GlobalContext.Provider value={{
-            cities: state.cities,loading:state.loading,startLoad,stopLoad,addCity, removeCity}}>
+            cities: state.cities, loading:state.loading, forecast:state.forecast, startLoad, stopLoad, addCity, removeCity, addForecast}}>
             {children}
         </GlobalContext.Provider>
     )

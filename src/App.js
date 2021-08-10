@@ -5,17 +5,22 @@ import React, { useState, useEffect } from 'react';
 
 import { Search } from './components/Search';
 import { GlobalProvider } from './context/GlobalState';
-import City from './components/City';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Forecast } from './components/Forecast';
+import {Main} from './components/Main'
 
 function App() {
   const [cities, setCities] = useState([])
 
   return (
-    <GlobalProvider>
-      <Search/>
-       <CityList/>
-
+    <GlobalProvider> 
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Main} />
+          <Route
+             path="/forecast/:id" component={Forecast} />
+        </Switch>
+      </BrowserRouter>  
     </GlobalProvider>
   );
 }

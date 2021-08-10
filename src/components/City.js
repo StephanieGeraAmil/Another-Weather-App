@@ -1,18 +1,18 @@
 import React,{useContext} from 'react';
 import { GlobalContext } from '../context/GlobalState'
+import { Link } from 'react-router-dom';
+import {FaTimes} from "react-icons/fa";
+import {FaPlus} from "react-icons/fa";
+
 
 const City = ({city}) => {
     
 
 const {removeCity}=useContext(GlobalContext)
-// const {getForecast}=useContext(GlobalContext)
 
-const getForecast=(id)=>{
-    
-}
+
     return ( 
         <>
-            
                 <div className="cityCard">
                     <div>
                             <h2>{city.name}</h2>
@@ -24,12 +24,13 @@ const getForecast=(id)=>{
                             </div>
                     
                     <div className='buttons'>
-                        <button className='deleteCityButon' onClick={()=>removeCity(city.id)}>X</button>
-                        <button className='forecastCity' onClick={()=>getForecast(city.id)}>...</button>
-                   
+                        <button className='deleteCityButon' onClick={()=>removeCity(city.id)}><FaTimes/></button>
+                     <Link to={`/forecast/${city.id}`}>
+                        <button className='forecastCity'><FaPlus/></button>
+                    </Link>
                     </div>
 
-                    </div>
+                </div>
            
         </>
        

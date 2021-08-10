@@ -22,6 +22,11 @@ export default(state, action)=>{
         ...state,
        cities: state.cities.filter(item=>item.id!==action.payload)
         }
+        case 'ADD_CITY_FORECAST':
+        return{
+        ...state,
+       forecast: action.payload
+        }
         default:  return state
     }
 }
