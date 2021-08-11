@@ -30,6 +30,7 @@ export const Search = () => {
             
             addCity(cityWithFormat)
             stopLoad()
+            setCity("")
         
         }catch(error){ 
              if (error.response.status==404) {
