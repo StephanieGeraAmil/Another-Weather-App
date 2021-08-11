@@ -11,7 +11,7 @@ export const Forecast = ({match}) => {
     const {cities}=useContext(GlobalContext)
    
     useEffect(() => {
-        const city =cities.find(item=>item.id=id)
+        const city =cities.find(item=>item.id.toString()===id.toString())
         fetchData(city.name)
     
         
@@ -28,7 +28,7 @@ export const Forecast = ({match}) => {
                 return frcst;
             })
         
-            console.log(forecast) 
+           
             addForecast(forecast)
            
         }catch(error){ 
