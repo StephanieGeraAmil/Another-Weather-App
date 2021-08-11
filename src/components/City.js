@@ -18,8 +18,8 @@ const {removeCity}=useContext(GlobalContext)
                             <h2>{city.name}</h2>
                             <h3> {city.main}</h3>
                             <p className="info">{city.description}</p>
-                            <p>Min : {city.min}</p>
-                            <p>Max :{city.max}</p>
+                            <p>Min : {(city.min -273.5).toFixed(2)}</p>
+                            <p>Max :{(city.max-273.5).toFixed(2)}</p>
                             <p>Location :{city.location}</p>
                             </div>
                     

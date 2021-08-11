@@ -25,7 +25,7 @@ export const Search = () => {
                 min: data.data.main.temp_min,
                 main: data.data.weather[0].main,
                 description: data.data.weather[0].description,
-                location: `${data.data.coord.lat}  ${data.data.coord.lon}`      
+                location: `${data.data.coord.lat.toFixed(2)}  ${data.data.coord.lon.toFixed(2)}`      
             }
             
             addCity(cityWithFormat)
