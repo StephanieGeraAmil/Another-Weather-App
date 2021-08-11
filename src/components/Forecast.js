@@ -2,14 +2,14 @@ import React,{useContext, useEffect} from 'react'
 import { GlobalContext } from '../context/GlobalState'
 import { AreaChart, CartesianGrid, XAxis,YAxis,Tooltip,Area} from 'recharts';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa";
-export const Forecast = ({match}) => {
-    const id=match.params.id
+export const Forecast = () => {
+    const {id}=useParams()
     const {forecast}=useContext(GlobalContext)
     const {addForecast}=useContext(GlobalContext)
     const {cities}=useContext(GlobalContext)
-   
+    const history = useHistory()
     useEffect(() => {
         const city =cities.find(item=>item.id.toString()===id.toString())
         fetchData(city.name)
@@ -48,9 +48,9 @@ export const Forecast = ({match}) => {
 //onClick={()=>getForecast(city.name)}
     return (
         <div>
-            <Link to={`/`}>
-                <button className='retunButton'><FaArrowLeft/></button>
-            </Link>
+           
+                <button className='retunButton' onClick={()=>{history.goBack()}}><FaArrowLeft/></button>
+           
             <AreaChart
                 width={900}
                 height={400}
